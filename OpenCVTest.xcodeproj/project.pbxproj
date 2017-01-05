@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D002F5011DC7494400AE64E9 /* MBR.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D002F4FF1DC7494400AE64E9 /* MBR.cpp */; };
 		D0337CFB1DA26E69006C0504 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0337CFA1DA26E69006C0504 /* AppDelegate.swift */; };
 		D0337CFD1DA26E69006C0504 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0337CFC1DA26E69006C0504 /* ViewController.swift */; };
 		D0337D001DA26E69006C0504 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0337CFE1DA26E69006C0504 /* Main.storyboard */; };
@@ -28,6 +29,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D002F4FF1DC7494400AE64E9 /* MBR.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MBR.cpp; sourceTree = "<group>"; };
+		D002F5001DC7494400AE64E9 /* MBR.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MBR.hpp; sourceTree = "<group>"; };
 		D0337CF71DA26E69006C0504 /* OpenCVTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenCVTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0337CFA1DA26E69006C0504 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0337CFC1DA26E69006C0504 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +133,8 @@
 				D0DECDFC1DAAC7A10052B1B9 /* haarcascade_frontalface_alt.xml */,
 				D0337D101DA270BD006C0504 /* OpenCVWrapper.mm */,
 				D0337D131DA27122006C0504 /* OpenCVWrapper.h */,
+				D002F4FF1DC7494400AE64E9 /* MBR.cpp */,
+				D002F5001DC7494400AE64E9 /* MBR.hpp */,
 			);
 			name = OpenCVWrapper;
 			sourceTree = "<group>";
@@ -257,6 +262,7 @@
 				D0337CFD1DA26E69006C0504 /* ViewController.swift in Sources */,
 				D0F577091DBE176E00D3A069 /* FacialDetection.swift in Sources */,
 				D0337CFB1DA26E69006C0504 /* AppDelegate.swift in Sources */,
+				D002F5011DC7494400AE64E9 /* MBR.cpp in Sources */,
 				D0DECDFB1DAAC71F0052B1B9 /* CameraUtil.swift in Sources */,
 				D0337D111DA270BD006C0504 /* OpenCVWrapper.mm in Sources */,
 			);

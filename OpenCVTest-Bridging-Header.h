@@ -3,3 +3,18 @@
 //
 
 #import "OpenCVWrapper.h"
+
+
+// Test
+#ifdef __cplusplus
+extern "C" {
+#endif
+	
+	const void *initializeTest(char *filename);
+	const char *hexdump(const void *object);
+	const char *imageType(const void *object);
+	
+#ifdef __cplusplus
+}
+#endif
+

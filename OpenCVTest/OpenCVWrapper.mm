@@ -8,15 +8,26 @@
 
 #include "OpenCVWrapper.h"
 #import <opencv2/highgui/ios.h>
+
 using namespace cv;
 using namespace std;
 
 @implementation OpenCVWrapper : NSObject
 
+static int _color_BGR2GRAY = 6;
+
 CascadeClassifier face_cascade;
 CascadeClassifier eyes_cascade;
 
 cv::CascadeClassifier cascade;
+
+typedef struct VectorOfCvRects {
+	std::vector<cv::Rect> val = *new std::vector<cv::Rect>();
+} *VectorOfCvRect;
+
+typedef struct CvMats {
+	cv::Mat val;
+} *CvMatrix;
 
 - (id)init {
     self = [super init];
@@ -38,53 +49,42 @@ cv::CascadeClassifier cascade;
     
     return self;
 }
-
-+ (UIImage *)processImageWithOpenCV:(UIImage*)inputImage {
-	//Mat mat = [inputImage CVMat];
-	
-	// do your processing here
-	//...
-	
-	//return [UIImage imageWithCVMat:mat];
-	return UIGraphicsGetImageFromCurrentImageContext();
-}
 /*
-void detectAndDisplay(Mat frame) {
-    std::vector<cv::Rect> faces;
+ Broken atm
+- (UIImage *)detectAndDisplay:(UIImage*)input {
+    VectorOfCvRect faces;
     Mat frame_gray;
-
+    Mat frame;
+    
+    UIImageToMat(input, frame);
+    
     cvtColor(frame, frame_gray, COLOR_BGR2GRAY);
     equalizeHist(frame_gray, frame_gray);
-
+	
     //-- Detect faces
-    face_cascade.detectMultiScale(frame_gray, faces, 1.1, 2, 0|CASCADE_SCALE_IMAGE, cv::Size(30, 30));
-
-    for (size_t i = 0; i < faces.size(); i++) {
-        cv::Point center(faces[i].x + faces[i].width/2, faces[i].y + faces[i].height/2);
-        ellipse(frame, center, cv::Size(faces[i].width/2, faces[i].height/2), 0, 0, 360, Scalar(255, 0, 255), 4, 8, 0);
-
-        Mat faceROI = frame_gray(faces[i]);
+    face_cascade.detectMultiScale(frame_gray, faces->val, 1.1, 2, 0|CASCADE_SCALE_IMAGE, cv::Size(30, 30));
+    
+    for (size_t i = 0; i < faces->val.size(); i++) {
+        cv::Point center(faces->val[i].x + faces->val[i].width/2, faces->val[i].y + faces->val[i].height/2);
+        ellipse(frame, center, cv::Size(faces->val[i].width/2, faces->val[i].height/2), 0, 0, 360, Scalar(255, 0, 255), 4, 8, 0);
+        
+        Mat faceROI = frame_gray(faces->val[i]);
         std::vector<cv::Rect> eyes;
-
+        
         //-- In each face, detect eyes
         eyes_cascade.detectMultiScale(faceROI, eyes, 1.1, 2, 0 |CASCADE_SCALE_IMAGE, cv::Size(30, 30));
-
+        
         for (size_t j = 0; j < eyes.size(); j++) {
-            cv::Point eye_center(faces[i].x + eyes[j].x + eyes[j].width/2, faces[i].y + eyes[j].y + eyes[j].height/2);
+            cv::Point eye_center(faces->val[i].x + eyes[j].x + eyes[j].width/2, faces->val[i].y + eyes[j].y + eyes[j].height/2);
             int radius = cvRound((eyes[j].width + eyes[j].height)*0.25);
             circle(frame, eye_center, radius, Scalar(255, 0, 0), 4, 8, 0);
         }
     }
     //-- Show what you got
-    imshow(window_name, frame);
+    UIImage *resultImage = MatToUIImage(frame);
+    return resultImage;
 }
 */
-
-typedef struct _vectorOfCvRect
-{
-	std::vector<cv::Rect> val;
-} *vectorOfCvRectPtr;
-
 - (UIImage *)detectAndDisplay:(UIImage*)input {
     std::vector<cv::Rect> faces;
     Mat frame_gray;
@@ -119,50 +119,56 @@ typedef struct _vectorOfCvRect
     return resultImage;
 }
 
++ (void)UIImageToMat:(UIImage*)input frame:(CvMats*)frame {
+	UIImageToMat(input, frame->val);
+}
+
++ (void)cvtColor:(CvMats*)input output:(CvMats*)output color:(int)color {
+	cvtColor(input->val, output->val, color);
+}
+
++ (void)equalizeHist:(CvMats*)input output:(CvMats*)output {
+	equalizeHist(input->val, output->val);
+}
+
 
 /*
- WORKING VERSION 
- 
- 
- 
+// WORKING VERSION
+
  - (UIImage *)detectAndDisplay:(UIImage*)input {
- std::vector<cv::Rect> faces;
- Mat frame_gray;
- Mat frame;
- 
- UIImageToMat(input, frame);
- 
- cvtColor(frame, frame_gray, COLOR_BGR2GRAY);
- equalizeHist(frame_gray, frame_gray);
- 
- //-- Detect faces
- face_cascade.detectMultiScale(frame_gray, faces, 1.1, 2, 0|CASCADE_SCALE_IMAGE, cv::Size(30, 30));
- 
- for (size_t i = 0; i < faces.size(); i++) {
- cv::Point center(faces[i].x + faces[i].width/2, faces[i].y + faces[i].height/2);
- ellipse(frame, center, cv::Size(faces[i].width/2, faces[i].height/2), 0, 0, 360, Scalar(255, 0, 255), 4, 8, 0);
- 
- Mat faceROI = frame_gray(faces[i]);
- std::vector<cv::Rect> eyes;
- 
- //-- In each face, detect eyes
- eyes_cascade.detectMultiScale(faceROI, eyes, 1.1, 2, 0 |CASCADE_SCALE_IMAGE, cv::Size(30, 30));
- 
- for (size_t j = 0; j < eyes.size(); j++) {
- cv::Point eye_center(faces[i].x + eyes[j].x + eyes[j].width/2, faces[i].y + eyes[j].y + eyes[j].height/2);
- int radius = cvRound((eyes[j].width + eyes[j].height)*0.25);
- circle(frame, eye_center, radius, Scalar(255, 0, 0), 4, 8, 0);
+     std::vector<cv::Rect> faces;
+     Mat frame_gray;
+     Mat frame;
+     
+     UIImageToMat(input, frame);
+     
+     cvtColor(frame, frame_gray, COLOR_BGR2GRAY);
+     equalizeHist(frame_gray, frame_gray);
+     
+     //-- Detect faces
+     face_cascade.detectMultiScale(frame_gray, faces, 1.1, 2, 0|CASCADE_SCALE_IMAGE, cv::Size(30, 30));
+     
+     for (size_t i = 0; i < faces.size(); i++) {
+         cv::Point center(faces[i].x + faces[i].width/2, faces[i].y + faces[i].height/2);
+         ellipse(frame, center, cv::Size(faces[i].width/2, faces[i].height/2), 0, 0, 360, Scalar(255, 0, 255), 4, 8, 0);
+         
+         Mat faceROI = frame_gray(faces[i]);
+         std::vector<cv::Rect> eyes;
+         
+         //-- In each face, detect eyes
+         eyes_cascade.detectMultiScale(faceROI, eyes, 1.1, 2, 0 |CASCADE_SCALE_IMAGE, cv::Size(30, 30));
+         
+         for (size_t j = 0; j < eyes.size(); j++) {
+             cv::Point eye_center(faces[i].x + eyes[j].x + eyes[j].width/2, faces[i].y + eyes[j].y + eyes[j].height/2);
+             int radius = cvRound((eyes[j].width + eyes[j].height)*0.25);
+             circle(frame, eye_center, radius, Scalar(255, 0, 0), 4, 8, 0);
+         }
+     }
+     //-- Show what you got
+     UIImage *resultImage = MatToUIImage(frame);
+     return resultImage;
  }
- }
- //-- Show what you got
- UIImage *resultImage = MatToUIImage(frame);
- return resultImage;
- }
-
- */
-
-
-
+*/
 /*
 + (UIImage *)recognizeFace:(UIImage *)image {
     CGColorSpaceRef colorSpace = CGImageGetColorSpace(image.CGImage);

@@ -63,9 +63,6 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         })
     }
 	
-	
-	
-	
 	/*var camera: CvVideoCamera
 	
 	init() {

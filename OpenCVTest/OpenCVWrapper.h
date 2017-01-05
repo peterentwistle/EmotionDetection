@@ -15,16 +15,26 @@
 #import "opencv2/highgui.hpp"
 #import "opencv2/imgproc.hpp"
 
+typedef struct VectorOfCvRects *VectorOfCvRect;
+typedef struct CvMats *CvMatrix;
 
 @interface OpenCVWrapper : NSObject
 
+@property (class, nonatomic, assign, readonly) int color_BGR2GRAY;
 //+ (UIImage *)processImageWithOpenCV:(UIImage*)inputImage;
 
 //+ (void)detectFace:(UIImage*)image;
 
 //+ (UIImage *)recognizeFace:(UIImage *)image;
 
-typedef struct _vectorOfCvRect *vectorOfCvRectPtr;
+
 
 - (UIImage *)detectAndDisplay:(UIImage*)input;
+
++ (void)UIImageToMat:(UIImage*)input frame:(CvMatrix*)frame;
+
++ (void)cvtColor:(CvMatrix*)input output:(CvMatrix*)output color:(int)color;
+
++ (void)equalizeHist:(CvMatrix*)input output:(CvMatrix*)output;
+
 @end
