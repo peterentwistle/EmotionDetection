@@ -11,7 +11,9 @@ import UIKit
 class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
 	
 	@IBOutlet weak var imageView: UIImageView!
-	
+    @IBOutlet weak var emotionImageView: UIImageView!
+    @IBOutlet weak var detectedEmotion: UILabel!
+    
     var openCVWrapper: OpenCVWrapper!
 	
     override func viewDidLoad() {
@@ -57,9 +59,23 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         DispatchQueue.main.sync(execute: {
 
             let image = CameraUtil.imageFromSampleBuffer(sampleBuffer)
+
+            let response = openCVWrapper.detectAndDisplay(image)
+            self.imageView.image = response?.frame
             
-            let faceImage = openCVWrapper.detectAndDisplay(image)
-            self.imageView.image = faceImage
+            if let emotion = response?.detectedEmotion {
+                
+                if emotion.emotion == .happiness {
+                    detectedEmotion.text = "Happiness!"
+                    detectedEmotion.textColor = UIColor.red
+                    detectedEmotion.font = detectedEmotion.font.withSize(30)
+                } else {
+                    detectedEmotion.text = "None"
+                    detectedEmotion.textColor = UIColor.black
+                    detectedEmotion.font = detectedEmotion.font.withSize(17)
+                }
+                //self.emotionImageView.image = emotion.frame
+            }
         })
     }
 	

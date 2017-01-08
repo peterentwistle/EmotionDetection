@@ -22,6 +22,10 @@
 		D03C02061DA2AEA300DFF4C8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03C02051DA2AEA300DFF4C8 /* ViewController.swift */; };
 		D03C02081DA2AEA300DFF4C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D03C02071DA2AEA300DFF4C8 /* Assets.xcassets */; };
 		D03C020B1DA2AEA300DFF4C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D03C02091DA2AEA300DFF4C8 /* Main.storyboard */; };
+		D0420A321E227FB400EE9EDB /* happiness.xml in Resources */ = {isa = PBXBuildFile; fileRef = D0420A311E227FB400EE9EDB /* happiness.xml */; };
+		D0420A341E228C9100EE9EDB /* DetectedEmotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0420A331E228C9100EE9EDB /* DetectedEmotion.swift */; };
+		D0420A361E228EAE00EE9EDB /* Emotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0420A351E228EAE00EE9EDB /* Emotion.swift */; };
+		D0420A3A1E22A54E00EE9EDB /* DetectedResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0420A391E22A54E00EE9EDB /* DetectedResult.swift */; };
 		D0DECDFB1DAAC71F0052B1B9 /* CameraUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DECDFA1DAAC71F0052B1B9 /* CameraUtil.swift */; };
 		D0DECDFD1DAAC7A10052B1B9 /* haarcascade_frontalface_alt.xml in Resources */ = {isa = PBXBuildFile; fileRef = D0DECDFC1DAAC7A10052B1B9 /* haarcascade_frontalface_alt.xml */; };
 		D0E8E0B21DB4299300F4AFC6 /* haarcascade_eye_tree_eyeglasses.xml in Resources */ = {isa = PBXBuildFile; fileRef = D0E8E0B11DB4299300F4AFC6 /* haarcascade_eye_tree_eyeglasses.xml */; };
@@ -51,6 +55,10 @@
 		D03C02071DA2AEA300DFF4C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D03C020A1DA2AEA300DFF4C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D03C020C1DA2AEA300DFF4C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0420A311E227FB400EE9EDB /* happiness.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = happiness.xml; sourceTree = "<group>"; };
+		D0420A331E228C9100EE9EDB /* DetectedEmotion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetectedEmotion.swift; sourceTree = "<group>"; };
+		D0420A351E228EAE00EE9EDB /* Emotion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emotion.swift; sourceTree = "<group>"; };
+		D0420A391E22A54E00EE9EDB /* DetectedResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetectedResult.swift; sourceTree = "<group>"; };
 		D0DECDFA1DAAC71F0052B1B9 /* CameraUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraUtil.swift; sourceTree = "<group>"; };
 		D0DECDFC1DAAC7A10052B1B9 /* haarcascade_frontalface_alt.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_frontalface_alt.xml; sourceTree = "<group>"; };
 		D0E8E0B11DB4299300F4AFC6 /* haarcascade_eye_tree_eyeglasses.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_eye_tree_eyeglasses.xml; sourceTree = "<group>"; };
@@ -111,6 +119,9 @@
 				D0337D031DA26E69006C0504 /* LaunchScreen.storyboard */,
 				D0337D061DA26E69006C0504 /* Info.plist */,
 				D0F577081DBE176E00D3A069 /* FacialDetection.swift */,
+				D0420A331E228C9100EE9EDB /* DetectedEmotion.swift */,
+				D0420A351E228EAE00EE9EDB /* Emotion.swift */,
+				D0420A391E22A54E00EE9EDB /* DetectedResult.swift */,
 			);
 			path = OpenCVTest;
 			sourceTree = "<group>";
@@ -129,6 +140,7 @@
 		D0337D121DA270CC006C0504 /* OpenCVWrapper */ = {
 			isa = PBXGroup;
 			children = (
+				D0420A311E227FB400EE9EDB /* happiness.xml */,
 				D0E8E0B11DB4299300F4AFC6 /* haarcascade_eye_tree_eyeglasses.xml */,
 				D0DECDFC1DAAC7A10052B1B9 /* haarcascade_frontalface_alt.xml */,
 				D0337D101DA270BD006C0504 /* OpenCVWrapper.mm */,
@@ -239,6 +251,7 @@
 				D0337D051DA26E69006C0504 /* LaunchScreen.storyboard in Resources */,
 				D0337D021DA26E69006C0504 /* Assets.xcassets in Resources */,
 				D0DECDFD1DAAC7A10052B1B9 /* haarcascade_frontalface_alt.xml in Resources */,
+				D0420A321E227FB400EE9EDB /* happiness.xml in Resources */,
 				D0337D001DA26E69006C0504 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,12 +272,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0420A3A1E22A54E00EE9EDB /* DetectedResult.swift in Sources */,
 				D0337CFD1DA26E69006C0504 /* ViewController.swift in Sources */,
 				D0F577091DBE176E00D3A069 /* FacialDetection.swift in Sources */,
 				D0337CFB1DA26E69006C0504 /* AppDelegate.swift in Sources */,
+				D0420A361E228EAE00EE9EDB /* Emotion.swift in Sources */,
 				D002F5011DC7494400AE64E9 /* MBR.cpp in Sources */,
 				D0DECDFB1DAAC71F0052B1B9 /* CameraUtil.swift in Sources */,
 				D0337D111DA270BD006C0504 /* OpenCVWrapper.mm in Sources */,
+				D0420A341E228C9100EE9EDB /* DetectedEmotion.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +326,7 @@
 		D0337D071DA26E69006C0504 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -332,6 +349,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -361,6 +379,7 @@
 		D0337D081DA26E69006C0504 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -383,6 +402,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -405,8 +425,10 @@
 		D0337D0A1DA26E69006C0504 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = WQG87JK36G;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -426,8 +448,10 @@
 		D0337D0B1DA26E69006C0504 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = WQG87JK36G;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

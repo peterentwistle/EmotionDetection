@@ -12,6 +12,8 @@ class ViewController: NSViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+        @IBOutlet weak var emotionImage: UIImageView!
+        @IBOutlet weak var detectedEmotion: UILabel!
 
 		// Do any additional setup after loading the view.
 	}

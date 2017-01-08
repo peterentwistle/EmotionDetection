@@ -18,6 +18,8 @@
 typedef struct VectorOfCvRects *VectorOfCvRect;
 typedef struct CvMats *CvMatrix;
 
+@class DetectedResult;
+
 @interface OpenCVWrapper : NSObject
 
 @property (class, nonatomic, assign, readonly) int color_BGR2GRAY;
@@ -29,7 +31,7 @@ typedef struct CvMats *CvMatrix;
 
 
 
-- (UIImage *)detectAndDisplay:(UIImage*)input;
+- (DetectedResult *)detectAndDisplay:(UIImage*)input;
 
 + (void)UIImageToMat:(UIImage*)input frame:(CvMatrix*)frame;
 
