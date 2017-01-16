@@ -12,35 +12,35 @@ import AVFoundation
 
 class CameraUtil {
     
-    // sampleBufferからUIImageへ変換
+    // Convert sampleBuffer to UIImage
     class func imageFromSampleBuffer(_ sampleBuffer: CMSampleBuffer) -> UIImage {
         let imageBuffer: CVImageBuffer! = CMSampleBufferGetImageBuffer(sampleBuffer)
         
-        // ベースアドレスをロック
+        // Lock the base address of the pixel buffer.
         CVPixelBufferLockBaseAddress(imageBuffer, CVPixelBufferLockFlags(rawValue: CVOptionFlags(0)))
         
-        // 画像データの情報を取得
+        // Get the base address of the plane at the specified plane index.
         let baseAddress: UnsafeMutableRawPointer = CVPixelBufferGetBaseAddressOfPlane(imageBuffer, 0)!
         
         let bytesPerRow: Int = CVPixelBufferGetBytesPerRow(imageBuffer)
         let width: Int = CVPixelBufferGetWidth(imageBuffer)
         let height: Int = CVPixelBufferGetHeight(imageBuffer)
         
-        // RGB色空間を作成
+        // Create RGB colour space
         let colorSpace: CGColorSpace! = CGColorSpaceCreateDeviceRGB()
         
-        // Bitmap graphic contextを作成
+        // Create Bitmap graphic context
         let bitsPerCompornent: Int = 8
         let bitmapInfo = CGBitmapInfo(rawValue: (CGBitmapInfo.byteOrder32Little.rawValue | CGImageAlphaInfo.premultipliedFirst.rawValue) as UInt32)
         let newContext: CGContext! = CGContext(data: baseAddress, width: width, height: height, bitsPerComponent: bitsPerCompornent, bytesPerRow: bytesPerRow, space: colorSpace, bitmapInfo: bitmapInfo.rawValue) as CGContext!
         
-        // Quartz imageを作成
+        // QCreate quartz image
         let imageRef: CGImage! = newContext!.makeImage()
         
-        // ベースアドレスをアンロック
+        // Unlock base address
         CVPixelBufferUnlockBaseAddress(imageBuffer, CVPixelBufferLockFlags(rawValue: CVOptionFlags(0)))
 
-        // UIImageを作成
+        // Create UIImage
         let resultImage: UIImage = UIImage(cgImage: imageRef)
         
         return resultImage
