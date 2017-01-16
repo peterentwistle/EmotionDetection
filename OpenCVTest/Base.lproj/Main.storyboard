@@ -6,6 +6,9 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,34 +25,66 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="PLA-Ux-v55">
-                                <rect key="frame" x="16" y="39" width="960" height="540"/>
+                                <rect key="frame" x="16" y="39" width="589" height="331"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="OUO-b8-tQ3">
+                                <rect key="frame" x="16" y="20" width="922" height="519"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="75R-jA-HN1">
-                                        <rect key="frame" x="0.0" y="0.0" width="960" height="540"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="922" height="519"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="75R-jA-HN1" secondAttribute="height" multiplier="16:9" id="e6T-ZO-9ay"/>
+                                        </constraints>
                                     </imageView>
                                 </subviews>
                             </stackView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yRc-Sc-kfj">
-                                <rect key="frame" x="16" y="587" width="255" height="143"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yRc-Sc-kfj">
+                                <rect key="frame" x="20" y="563" width="255" height="143"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="255" id="FQt-l7-yGD"/>
+                                    <constraint firstAttribute="height" constant="143" id="Ocy-x0-fiu"/>
+                                </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="None" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mpL-fO-rTG">
-                                <rect key="frame" x="575" y="648" width="158" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="x91-xb-zOi">
+                                <rect key="frame" x="364" y="666" width="141" height="21"/>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="aX2-5E-cNZ">
+                                <rect key="frame" x="364" y="666" width="141" height="21"/>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Emotion detected:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e0X-0V-4Yy">
+                                <rect key="frame" x="364" y="552" width="141" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Emotion detected:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e0X-0V-4Yy">
-                                <rect key="frame" x="426" y="653" width="141" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="None" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mpL-fO-rTG">
+                                <rect key="frame" x="512" y="547" width="158" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="158" id="efz-Vf-5Gq"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="75R-jA-HN1" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="3Ic-N3-cSX"/>
+                            <constraint firstItem="aX2-5E-cNZ" firstAttribute="top" secondItem="e0X-0V-4Yy" secondAttribute="bottom" constant="93" id="Cvj-xE-IV6"/>
+                            <constraint firstItem="e0X-0V-4Yy" firstAttribute="centerY" secondItem="mpL-fO-rTG" secondAttribute="centerY" id="IDb-Qc-xqE"/>
+                            <constraint firstItem="e0X-0V-4Yy" firstAttribute="trailing" secondItem="aX2-5E-cNZ" secondAttribute="trailing" id="NZb-m0-CVb"/>
+                            <constraint firstItem="mpL-fO-rTG" firstAttribute="top" secondItem="OUO-b8-tQ3" secondAttribute="bottom" constant="9" id="RPd-hq-mIK"/>
+                            <constraint firstItem="e0X-0V-4Yy" firstAttribute="leading" secondItem="x91-xb-zOi" secondAttribute="leading" id="RYy-ic-HBx"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="mpL-fO-rTG" secondAttribute="bottom" constant="190" id="YLc-it-kZL"/>
+                            <constraint firstItem="e0X-0V-4Yy" firstAttribute="leading" secondItem="aX2-5E-cNZ" secondAttribute="leading" id="Zpy-Ow-wlD"/>
+                            <constraint firstItem="e0X-0V-4Yy" firstAttribute="leading" secondItem="yRc-Sc-kfj" secondAttribute="trailing" constant="89" id="eTu-7G-PVZ"/>
+                            <constraint firstItem="e0X-0V-4Yy" firstAttribute="top" secondItem="OUO-b8-tQ3" secondAttribute="bottom" constant="14" id="g6Q-us-BHs"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="yRc-Sc-kfj" secondAttribute="bottom" constant="62" id="h9r-bB-kfT"/>
+                            <constraint firstItem="mpL-fO-rTG" firstAttribute="leading" secondItem="e0X-0V-4Yy" secondAttribute="trailing" constant="7" id="iDY-SS-rBd"/>
+                            <constraint firstItem="e0X-0V-4Yy" firstAttribute="trailing" secondItem="x91-xb-zOi" secondAttribute="trailing" id="jTu-it-67v"/>
+                            <constraint firstItem="yRc-Sc-kfj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="qYh-sy-UeB"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="detectedEmotion" destination="mpL-fO-rTG" id="Ny2-g9-Q0n"/>
