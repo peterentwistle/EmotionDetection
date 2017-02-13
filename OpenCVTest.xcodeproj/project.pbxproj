@@ -42,7 +42,7 @@
 		D0337D011DA26E69006C0504 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D0337D041DA26E69006C0504 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D0337D061DA26E69006C0504 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D0337D0D1DA26F87006C0504 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = ../opencv2.framework; sourceTree = "<group>"; };
+		D0337D0D1DA26F87006C0504 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = Packages/OpenCVFramework.git/Sources/opencv2.framework; sourceTree = "<group>"; };
 		D0337D0F1DA270BD006C0504 /* OpenCVTest-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OpenCVTest-Bridging-Header.h"; sourceTree = "<group>"; };
 		D0337D101DA270BD006C0504 /* OpenCVWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = OpenCVWrapper.mm; path = OpenCVTest/OpenCVWrapper.mm; sourceTree = "<group>"; };
 		D0337D131DA27122006C0504 /* OpenCVWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OpenCVWrapper.h; path = OpenCVTest/OpenCVWrapper.h; sourceTree = "<group>"; };
